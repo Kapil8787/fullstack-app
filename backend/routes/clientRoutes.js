@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Client = require("../models/Client");
 
-// Add client
+// Add client (Admin)
 router.post("/", async (req, res) => {
   try {
     const client = new Client(req.body);
@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Get clients
+// Get all clients (Landing page + Admin)
 router.get("/", async (req, res) => {
   try {
     const clients = await Client.find();
