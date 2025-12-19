@@ -2,21 +2,21 @@ const express = require("express");
 const router = express.Router();
 const Contact = require("../models/Contact");
 
-// Submit contact form
+// Submit contact form (User)
 router.post("/", async (req, res) => {
   try {
     const contact = new Contact(req.body);
     await contact.save();
-    res.status(201).json({ message: "Contact saved" });
+    res.status(201).json(contact);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// Get all contacts (Admin)
+// Get all contact submissions (Admin)
 router.get("/", async (req, res) => {
   try {
-    const contacts = await Contact.find();
+    const contacts = await Contact.find().sort({ createdAt: -1 });
     res.json(contacts);
   } catch (error) {
     res.status(500).json({ message: error.message });
