@@ -4,7 +4,7 @@ export default function ClientCard({ client }) {
       {/* Client Image */}
         <div className="flex justify-center -mt-14 mb-4">
       <img
-        src={`http://localhost:5000/${client.image}`}
+        src={`https://flipr-backend-sm6h.onrender.com/${client.image}`}
         alt={client.name}
        className="w-20 h-20 rounded-full object-cover border-4 border-white shadow"
       />

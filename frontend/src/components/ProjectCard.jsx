@@ -5,7 +5,7 @@ export default function ProjectCard({ project }) {
       {/* Image */}
       <div className="w-full aspect-[4/3] bg-gray-100 overflow-hidden rounded-t-xl flex items-center justify-center">
         <img
-          src={`http://localhost:5000/uploads/${project.image}`}
+          src={`https://flipr-backend-sm6h.onrender.com/uploads/${project.image}`}
           alt={project.name}
           className="w-full h-full object-cover object-center"
         />
