@@ -20,7 +20,8 @@ app.use("/uploads", express.static("uploads"));
 app.use("/api/projects", projectRoutes);
 app.use("/api/clients", clientRoutes);
 app.use("/api/contact", contactRoutes);
-app.use("/api/subscribe", subscriberRoutes);
+app.use("/api/subscribers", subscriberRoutes);
+
 
 // TEST ROUTE
 app.get("/", (req, res) => {

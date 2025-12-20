@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
 
     const subscriber = new Subscriber({ email });
     await subscriber.save();
-    res.status(201).json(subscriber);
+    res.status(201).json(subscribers);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -28,6 +28,12 @@ router.get("/", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+});
+
+// Delete subscriber (Admin)
+router.delete("/:id", async (req, res) => {
+  await Subscriber.findByIdAndDelete(req.params.id);
+  res.json({ message: "Subscriber deleted" });
 });
 
 module.exports = router;
