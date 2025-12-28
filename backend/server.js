@@ -8,6 +8,7 @@ const projectRoutes = require("./routes/projectRoutes");
 const clientRoutes = require("./routes/clientRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const subscriberRoutes = require("./routes/subscriberRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express(); // ✅ app is created HERE
 
@@ -21,6 +22,7 @@ app.use("/api/projects", projectRoutes);
 app.use("/api/clients", clientRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/subscribers", subscriberRoutes);
+app.use("/api/auth", authRoutes);
 
 
 // TEST ROUTE
