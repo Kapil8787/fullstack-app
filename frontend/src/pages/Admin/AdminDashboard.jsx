@@ -10,6 +10,12 @@ export default function AdminDashboard() {
     subscribers: 0,
   });
 
+  //admin logout functionality
+  const handleLogout = () => {
+  localStorage.removeItem("adminToken");
+  window.location.href = "/admin/login";
+};
+
   useEffect(() => {
     Promise.all([
       API.get("/projects"),
@@ -38,6 +44,10 @@ export default function AdminDashboard() {
         <Card title="Contacts" count={counts.contacts} />
         <Card title="Subscribers" count={counts.subscribers} />
       </div>
+      <div>
+        <button onClick={handleLogout}>Logout</button>
+
+</div>
     </AdminLayout>
   );
 }
