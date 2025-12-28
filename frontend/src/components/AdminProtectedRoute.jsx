@@ -1,32 +1,14 @@
 import { Navigate } from "react-router-dom";
-import jwtDecode from "jwt-decode";
-import { useState } from "react";
-
-const getAuthStatus = () => {
-  const token = localStorage.getItem("adminToken");
-  if (!token) return "no";
-
-  try {
-    const decoded = jwtDecode(token);
-    if (decoded.exp * 1000 > Date.now()) {
-      return "yes";
-    } else {
-      localStorage.removeItem("adminToken");
-      return "no";
-    }
-  } catch {
-    localStorage.removeItem("adminToken");
-    return "no";
-  }
-};
 
 const AdminProtectedRoute = ({ children }) => {
-  const [authorized] = useState(getAuthStatus);
+  const token = localStorage.getItem("adminToken");
 
-  if (authorized === "no") {
+  // ❌ no token → redirect
+  if (!token) {
     return <Navigate to="/admin/login" replace />;
   }
 
+  // ✅ token exists → allow access
   return children;
 };
 
