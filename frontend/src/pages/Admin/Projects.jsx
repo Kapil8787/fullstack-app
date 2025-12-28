@@ -56,7 +56,7 @@ export default function Projects() {
               <td className="border p-2">{p.description}</td>
               <td className="border p-2">
                 <img
-                  src={`http://localhost:5000/${p.image}`}
+                  src={`https://flipr-backend-sm6h.onrender.com/uploads/${p.image}`}
                   alt={p.name}
                   className="h-16"
                 />
