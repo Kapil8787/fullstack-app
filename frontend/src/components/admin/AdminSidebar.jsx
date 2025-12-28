@@ -1,6 +1,14 @@
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminSidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("adminToken");
+    navigate("/admin/login", { replace: true });
+  };
+
   return (
     <aside className="w-64 bg-gray-900 text-white min-h-screen p-4">
       <h2 className="text-xl font-bold mb-6">Admin Panel</h2>
@@ -26,6 +34,13 @@ export default function AdminSidebar() {
           Subscribers
         </NavLink>
       </nav>
+      {/* LOGOUT */}
+      <button
+        onClick={handleLogout}
+        className="mt-auto bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700"
+      >
+        Logout
+      </button>
     </aside>
   );
 }
